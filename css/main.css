@@ -3,6 +3,7 @@ body {
     text-align: center;
 }
 
+
 .board {
     display: grid;
     grid-template-columns: repeat(7, 100px);
@@ -12,10 +13,6 @@ body {
     margin: 0 auto;
     justify-content: center;
     background-color: black;
-}
-
-.board > div:hover{
-    background-color: rgb(255, 209, 111);
 }
 
 .board > div {
@@ -30,4 +27,8 @@ button {
     padding: 25px;
     border: 5px solid black;
     background-color: rgb(255, 0, 0);
+}
+
+/*.board > div:hover{
+    background-color: rgb(255, 209, 111);
 }
