@@ -65,8 +65,9 @@ function handleDrop(evt) {
     turn *= -1;
     //getWinner(colIdx, rowIdx);
     vertWin(colIdx, rowIdx);
+    horizWin(colIdx, rowIdx);
     render();
-
+    console.log(board);
 }
 
 function vertWin(colIdx, rowIdx) {
