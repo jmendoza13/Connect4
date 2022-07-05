@@ -40,14 +40,22 @@ function render() {
         cellEl.style.backgroundColor = COLORS[cellVal];
         });
     });
+    // hide or show markers if no 0s exist in a particular column
+    renderMarkers();
 }
+
+function renderMarkers() {
+    markerEls.forEach(function(markerEl, colIdx) {
+        markerEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
+    });
+}
+
 
 //update all impacted state, then call render
 function handleDrop(evt) {
     const colIdx = markerEls.indexOf(evt.target);
     if (colIdx === -1)return; 
     const colArr = board[colIdx];
-    if (!colArr.includes(0)) return;
     const rowIdx = colArr.indexOf(0);
     colArr[rowIdx] = turn;
     turn *= -1;
