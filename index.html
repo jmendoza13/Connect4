@@ -6,14 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Four</title>
     <link rel="stylesheet" href="css/main.css">
-    <script defer src="index.js"></script>
+    <script defer src="js/main.js"></script>
 </head>
 <body>
-    <h1> Connect Four</h1>
+    <div class="background-image"></div>
+    <h1>Connect Four</h1>
     <h2>Player ____ Turn</h2>
-
-    <div class="board">
-        
+    <section id="markers">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+      </section>
+    <section id="board">
             <div id="c0r5"></div>
             <div id="c1r5"></div>
             <div id="c2r5"></div>
@@ -61,9 +69,17 @@
             <div id="c4r0"></div>
             <div id="c5r0"></div>
             <div id="c6r0"></div>
-       
-    </div>
+    </section>
 </body>
 <button>Play Again!</button>
 </body>
+<style>
+    .background-image {
+        background-image: url('https://i.imgur.com/qP06YY4.jpeg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100vh;
+        height: 100vh;
+    }
+</style>
 </html>
