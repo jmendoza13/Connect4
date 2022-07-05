@@ -8,10 +8,12 @@ const COLORS = {
 /*----- app's state (variables) -----*/
 let board; // utilize nested arrays to represent the columns in the board
 let turn; // 1 or -1; 0 for no movement
+let gameStatus; // null = game in progress; 1/-1 player win; 'T' = tie;
 
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
- 
+ const msgEl = document.querySelector('h2');
+
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
 
@@ -29,6 +31,7 @@ function init() {
         [0, 0, 0, 0, 0, 0], // column 7 [index 6]
     ];
     turn = 1;
+    gameStatus= null;
     render();
 }
 
@@ -42,6 +45,7 @@ function render() {
     });
     // hide or show markers if no 0s exist in a particular column
     renderMarkers();
+    renderMessage();
 }
 
 function renderMarkers() {
@@ -60,5 +64,17 @@ function handleDrop(evt) {
     colArr[rowIdx] = turn;
     turn *= -1;
     render();
+}
+
+function renderMessage() {
+    if(gameStatus === null) {
+        msgEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn]}</span>'s Turn`;
+    }else if(gameStatus === 'T') {
+        //Tie game
+        msgEl.textContent = "It's a Draw! No one wins!";
+    }else {
+        //player 'x' wins
+        msgEl.innerHTML = `Player <span style="color: ${COLORS[gameStatus]}">${COLORS[turn]}</span>'s Wins!`;
+    }
 }
 
