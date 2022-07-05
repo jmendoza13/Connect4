@@ -12,7 +12,7 @@ let gameStatus; // null = game in progress; 1/-1 player win; 'T' = tie;
 
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
- const msgEl = document.querySelector('h2');
+const msgEl = document.querySelector('h2');
 
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
@@ -63,7 +63,42 @@ function handleDrop(evt) {
     const rowIdx = colArr.indexOf(0);
     colArr[rowIdx] = turn;
     turn *= -1;
+    //getWinner(colIdx, rowIdx);
+    vertWin(colIdx, rowIdx);
     render();
+
+}
+
+function vertWin(colIdx, rowIdx) {
+    const color = board[colIdx][rowIdx];
+    let amountOfColors = 0;
+    let currRowIdx = rowIdx;
+    while (currRowIdx >= 0 && board[colIdx][currRowIdx] == color) {
+        amountOfColors++
+        currRowIdx--
+    }
+    if (amountOfColors == 4) {
+        alert(color + ' has won')
+    }
+}
+
+    
+function horizWin(colIdx, rowIdx) {
+    const color = board[colIdx][rowIdx];
+    let amountOfColors = 0;
+    let currColIdx = colIdx;
+    while (currColIdx >= 0 && board[colIdx][currColIdx] == color) {
+        amountOfColors++
+        currColIdx--
+    }
+    if (amountOfColors == 4) {
+        alert(color + ' has won')
+    }
+}
+
+
+function diagWin(colIdx, rowIdx) {
+
 }
 
 function renderMessage() {
@@ -78,3 +113,9 @@ function renderMessage() {
     }
 }
 
+
+//function getWinner(colIdx, rowIdx) {
+    // look to the left or right for current turn, 4 or more times, return true/win; victory
+    // look below for current turn 4 or more times, return true/win; victory
+    // look up to the left or down to the right for current turn 4 or more times, return true; victory
+//}

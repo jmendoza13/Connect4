@@ -12,16 +12,17 @@ body {
 #markers {
     display: grid;
     grid-template-columns: repeat(7, 95px);
-    gap: .7vmin;
     justify-content: center;
+    gap: 3.75px;
   }
   
   #markers > div {
     height: 1vmin;
-    border-width: 6vmin;
+    border-width: 7vmin;
     border-style: solid;
     border-color: rgb(164, 0, 214) transparent transparent;
     transform: scale(0.5);
+    
   }
   
   #markers > div:hover {
@@ -34,7 +35,7 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 100px);
     grid-template-rows: repeat(6, 100px);
-    width:800px;
+    width:750px;
     height:625px;
     margin: 0 auto;
     justify-content: center;
@@ -56,26 +57,3 @@ button {
     background-color: grey(255, 0, 0);
 }
 
-@media only screen and (max-width:600px) {
-  #markers {
-    display: grid;
-    grid-template-columns: repeat(7, 95px);
-    gap: 1vmin;
-    justify-content: center;
-  }
-  
-  #markers > div {
-    height: 1vmin;
-    border-width: 6vmin;
-    border-style: solid;
-    border-color: rgb(164, 0, 214) transparent transparent;
-    transform: scale(0.5);
-  }
-  
-  #markers > div:hover {
-    transform: scale(0.7);
-    transition: transform 150ms ease-in;
-    border-top-color: rgba(233, 0, 0, 0.171);
-  }
-}
-  
