@@ -10,7 +10,11 @@ let board; // utilize nested arrays to represent the columns in the board
 let turn; // 1 or -1; 0 for no movement
 
 /*----- cached element references -----*/
+const markerEls = [...document.querySelectorAll('#markers > div')];
+ 
 /*----- event listeners -----*/
+document.getElementById('markers').addEventListener('click', handleDrop);
+
 /*----- functions -----*/
 init (); // utilizing init to initialize for a function
 function init() {
@@ -38,5 +42,15 @@ function render() {
     });
 }
 
-
+//update all impacted state, then call render
+function handleDrop(evt) {
+    const colIdx = markerEls.indexOf(evt.target);
+    if (colIdx === -1)return; 
+    const colArr = board[colIdx];
+    if (!colArr.includes(0)) return;
+    const rowIdx = colArr.indexOf(0);
+    colArr[rowIdx] = turn;
+    turn *= -1;
+    render();
+}
 
