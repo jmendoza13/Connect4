@@ -6,6 +6,7 @@ const COLORS = {
 };
 
 /*----- app's state (variables) -----*/
+
 let board; // utilize nested arrays to represent the columns in the board
 let turn; // 1 or -1; 0 for no movement
 let gameStatus; // null = game in progress; 1/-1 player win; 'T' = tie;
@@ -66,8 +67,8 @@ function handleDrop(evt) {
     //getWinner(colIdx, rowIdx);
     vertWin(colIdx, rowIdx);
     horizWin(colIdx, rowIdx);
+    diagWin(colIdx, rowIdx);
     render();
-    console.log(board);
 }
 
 function vertWin(colIdx, rowIdx) {
@@ -87,14 +88,21 @@ function vertWin(colIdx, rowIdx) {
 function horizWin(colIdx, rowIdx) {
     const color = board[colIdx][rowIdx];
     let amountOfColors = 0;
-    let currColIdx = colIdx;
-    while (currColIdx >= 0 && board[colIdx][currColIdx] == color) {
+    let position = colIdx;
+    while (position >= 0 && board[position][rowIdx] == color) {
         amountOfColors++
-        currColIdx--
+        position--
     }
-    if (amountOfColors == 4) {
+    position = colIdx;
+    while (position != board[0].length && board[position][rowIdx] == color) {
+        amountOfColors++
+        position++
+    }
+    console.log("checked", amountOfColors);
+    // We check for 5 because we check over the same position twice
+    if (amountOfColors >= 5)  {
         alert(color + ' has won')
-    }
+    } 
 }
 
 
