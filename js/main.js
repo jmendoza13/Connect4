@@ -125,7 +125,6 @@ function diagWinLeft(colIdx, rowIdx) {
         position++;
         currRowIdx--;
     }
-    // We check for 5 because we check over the same position twice
     if (amountOfColors >= 4)  {
         alert(color + ' has won')
     } 
@@ -149,10 +148,10 @@ function diagWinLeft(colIdx, rowIdx) {
         position--;
         currRowIdx--;
     }
-   // We check for 5 because we check over the same position twice
-    if (amountOfColors >= 5)  {
+    if (amountOfColors >= 4)  {
         alert(color + ' has won')
     } 
+    console.log('diagWinRight', amountOfColors)
 }
 
 
