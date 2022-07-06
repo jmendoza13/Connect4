@@ -67,7 +67,8 @@ function handleDrop(evt) {
     //getWinner(colIdx, rowIdx);
     vertWin(colIdx, rowIdx);
     horizWin(colIdx, rowIdx);
-    diagWin(colIdx, rowIdx);
+    diagWinLeft(colIdx, rowIdx);
+    diagWinRight(colIdx, rowIdx);
     render();
 }
 
@@ -98,7 +99,6 @@ function horizWin(colIdx, rowIdx) {
         amountOfColors++
         position++
     }
-    console.log("checked", amountOfColors);
     // We check for 5 because we check over the same position twice
     if (amountOfColors >= 5)  {
         alert(color + ' has won')
@@ -106,9 +106,55 @@ function horizWin(colIdx, rowIdx) {
 }
 
 
-function diagWin(colIdx, rowIdx) {
+function diagWinLeft(colIdx, rowIdx) {
+    const color = board[colIdx][rowIdx];
+    let amountOfColors = 1;
+    let position = colIdx - 1;
+    let currRowIdx = rowIdx + 1;
 
+    while (position != board[0].length && position >=0 && currRowIdx < board[0].length && board[position][currRowIdx] == color) {
+        amountOfColors++;
+        position--;
+        currRowIdx++;
+        //debugger;
+    }
+    position = colIdx + 1;
+    currRowIdx = rowIdx -1;
+    while (position != board[0].length && position < board.length &&  currRowIdx >= 0 && board[position][currRowIdx] == color) {
+        amountOfColors++
+        position++;
+        currRowIdx--;
+    }
+    // We check for 5 because we check over the same position twice
+    if (amountOfColors >= 4)  {
+        alert(color + ' has won')
+    } 
+    console.log('diagWinLeft', amountOfColors)
 }
+
+ function diagWinRight(colIdx, rowIdx) {
+    const color = board[colIdx][rowIdx];
+    let amountOfColors = 1;
+    let position = colIdx + 1;
+    let currRowIdx = rowIdx + 1; 
+    while (position != board[0].length && position <board.length && currRowIdx < board[0].length && board[position][currRowIdx] == color) {
+        amountOfColors++;
+        position++;
+        currRowIdx++;
+    }
+    position = colIdx - 1;
+    currRowIdx = rowIdx -1;
+    while (position != board[0].length && position >=0 && currRowIdx >= 0 && board[position][currRowIdx] == color) {
+        amountOfColors++
+        position--;
+        currRowIdx--;
+    }
+   // We check for 5 because we check over the same position twice
+    if (amountOfColors >= 5)  {
+        alert(color + ' has won')
+    } 
+}
+
 
 function renderMessage() {
     if(gameStatus === null) {
