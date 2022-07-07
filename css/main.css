@@ -1,6 +1,7 @@
 body {
-    background-image: url('https://i.imgur.com/qP06YY4.jpeg');
+    background-image: url('https://steamuserimages-a.akamaihd.net/ugc/842587034918019612/FFA99C866B4EA6BC93D1B9664083DEB6BA1E3386/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
     background-size: cover;
+    background-repeat: no-repeat;
     width: 100vh;
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;

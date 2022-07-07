@@ -16,9 +16,11 @@ let winner;
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
 const msgEl = document.querySelector('h2');
+const replayBtn = document.getElementById('replay');
 
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
+let test = replayBtn.addEventListener('click', init);
 
 /*----- functions -----*/
 init (); // utilizing init to initialize for a function
@@ -58,7 +60,6 @@ function renderMarkers() {
         if (winner === -1 || winner === 1 ) {
             markerEl.style.visibility = "hidden"
     };
-        // if
     });
 }
 
@@ -84,7 +85,7 @@ function vertWin(colIdx, rowIdx, player) {
     }
     return amountOfColors >= 4 ? winner = turn * -1 : 0
     }
-    console.log(gameStatus);
+    
 
 
     
@@ -158,7 +159,7 @@ function renderMessage() {
         msgEl.textContent = "It's a Draw! No one wins!";
     }else if (winner === 1 || winner === -1) {
         // winner
-        msgEl.innerHTML = `Player <span style="color: ${COLORS[winner]}">${COLORS[winner]}</span>'s Wins!`;
+        msgEl.innerHTML = `Player <span style="color: ${COLORS[winner]}">${COLORS[winner]}</span> Wins!`;
     }else {
         //turn
         msgEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn]}</span>'s Turn`;
