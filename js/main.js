@@ -55,7 +55,7 @@ function render() {
 function renderMarkers() {
     markerEls.forEach(function (markerEl, colIdx) {
         markerEl.style.visibility = board[colIdx].includes(0) ? "visible" : "hidden";
-        if (gameStatus === -1 || gameStatus === 1 ) {
+        if (winner === -1 || winner === 1 ) {
             markerEl.style.visibility = "hidden"
     };
         // if
@@ -78,7 +78,7 @@ function vertWin(colIdx, rowIdx, player) {
     const color = board[colIdx][rowIdx];
     let amountOfColors = 1;
     rowIdx--;
-    while (color[rowIdx] === player && rowIdx >= 0) {
+    while (color === player && rowIdx >= 0) {
         amountOfColors++
         rowIdx--
     }
@@ -122,7 +122,7 @@ function diagWinLeft(colIdx, rowIdx) {
     position = colIdx + 1;
     currRowIdx = rowIdx -1;
 
-    while (position < board.length &&  currRowIdx >= 0 && board[position][currRowIdx] === color) {
+    while (position < board.length && currRowIdx >= 0 && board[position][currRowIdx] === color) {
         amountOfColors++
         position++;
         currRowIdx--;
@@ -148,7 +148,7 @@ function diagWinRight(colIdx, rowIdx) {
         position--;
         currRowIdx--;
     }
-    return amountOfColors >= 4 ? winner = turn * -1 : 0;
+    return amountOfColors >= 4 ? winner = turn * -1 : 0
 }
 
 
@@ -167,9 +167,10 @@ function renderMessage() {
 
 
 function checkWinner(colIdx, rowIdx) {
-    return vertWin(colIdx, rowIdx) ||
-    horizWin(colIdx, rowIdx) ||
-    diagWinLeft(colIdx, rowIdx) || 
-    diagWinRight(colIdx, rowIdx) 
+    const player = board[colIdx][rowIdx]
+    return vertWin(colIdx, rowIdx, player) ||
+    horizWin(colIdx, rowIdx, player) ||
+    diagWinLeft(colIdx, rowIdx, player) || 
+    diagWinRight(colIdx, rowIdx, player) 
 }
 
