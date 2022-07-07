@@ -79,7 +79,7 @@ function vertWin(colIdx, rowIdx, player) {
     const color = board[colIdx][rowIdx];
     let amountOfColors = 1;
     rowIdx--;
-    while (color === player && rowIdx >= 0) {
+    while (board[colIdx][rowIdx] === player && rowIdx >= 0) {
         amountOfColors++
         rowIdx--
     }
