@@ -175,3 +175,4 @@ function checkWinner(colIdx, rowIdx) {
     diagWinRight(colIdx, rowIdx, player) 
 }
 
+// zig zag issues
