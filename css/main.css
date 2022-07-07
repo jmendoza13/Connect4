@@ -1,7 +1,7 @@
 body {
     background-image: url('https://steamuserimages-a.akamaihd.net/ugc/842587034918019612/FFA99C866B4EA6BC93D1B9664083DEB6BA1E3386/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     width: 100vh;
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
@@ -12,9 +12,11 @@ body {
 
 #markers {
     display: grid;
-    grid-template-columns: repeat(7, 95px);
+    grid-template-columns: repeat(7, 100px);
     justify-content: center;
-    gap: 3.75px;
+    gap: 0.5vh;
+    margin-bottom: -7vh;
+    margin-top: -4vh;
   }
   
   #markers > div {
@@ -36,8 +38,8 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 100px);
     grid-template-rows: repeat(6, 100px);
-    width:750px;
-    height:625px;
+    width:700px;
+    height:600px;
     margin: 0 auto;
     justify-content: center;
     background-color: black;
