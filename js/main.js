@@ -5,11 +5,13 @@ const COLORS = {
     '0': 'white' 
 };
 
+
 /*----- app's state (variables) -----*/
 
 let board; // utilize nested arrays to represent the columns in the board
 let turn; // 1 or -1; 0 for no movement
 let gameStatus; // null = game in progress; 1/-1 player win; 'T' = tie;
+let winner;
 
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
@@ -33,6 +35,7 @@ function init() {
     ];
     turn = 1;
     gameStatus= null;
+    winner = 0;
     render();
 }
 
@@ -50,8 +53,12 @@ function render() {
 }
 
 function renderMarkers() {
-    markerEls.forEach(function(markerEl, colIdx) {
-        markerEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
+    markerEls.forEach(function (markerEl, colIdx) {
+        markerEl.style.visibility = board[colIdx].includes(0) ? "visible" : "hidden";
+        if (gameStatus === -1 || gameStatus === 1 ) {
+            markerEl.style.visibility = "hidden"
+    };
+        // if
     });
 }
 
@@ -59,117 +66,110 @@ function renderMarkers() {
 //update all impacted state, then call render
 function handleDrop(evt) {
     const colIdx = markerEls.indexOf(evt.target);
-    if (colIdx === -1)return; 
     const colArr = board[colIdx];
     const rowIdx = colArr.indexOf(0);
     colArr[rowIdx] = turn;
     turn *= -1;
-    //getWinner(colIdx, rowIdx);
-    vertWin(colIdx, rowIdx);
-    horizWin(colIdx, rowIdx);
-    diagWinLeft(colIdx, rowIdx);
-    diagWinRight(colIdx, rowIdx);
+    winner = checkWinner(colIdx, rowIdx);
     render();
 }
 
-function vertWin(colIdx, rowIdx) {
+function vertWin(colIdx, rowIdx, player) {
     const color = board[colIdx][rowIdx];
-    let amountOfColors = 0;
-    let currRowIdx = rowIdx;
-    while (currRowIdx >= 0 && board[colIdx][currRowIdx] == color) {
+    let amountOfColors = 1;
+    rowIdx--;
+    while (color[rowIdx] === player && rowIdx >= 0) {
         amountOfColors++
-        currRowIdx--
+        rowIdx--
     }
-    if (amountOfColors == 4) {
-        alert(color + ' has won')
+    return amountOfColors >= 4 ? winner = turn * -1 : 0
     }
-}
+    console.log(gameStatus);
+
 
     
 function horizWin(colIdx, rowIdx) {
     const color = board[colIdx][rowIdx];
-    let amountOfColors = 0;
-    let position = colIdx;
-    while (position >= 0 && board[position][rowIdx] == color) {
-        amountOfColors++
-        position--
-    }
-    position = colIdx;
-    while (position != board[0].length && board[position][rowIdx] == color) {
+    let amountOfColors = 1;
+    let position = colIdx + 1;
+    // this while loop represents the left side of the board
+    while (position < board.length && board[position][rowIdx] === color) {
         amountOfColors++
         position++
     }
-    // We check for 5 because we check over the same position twice
-    if (amountOfColors >= 5)  {
-        alert(color + ' has won')
-    } 
-}
+    position = colIdx - 1;
+    // this while loop represents the right side of the board
+    while ((position >= 0) && board[position][rowIdx] === color) {
+        amountOfColors++
+        position--
+    }
+    return amountOfColors >= 4 ? winner = turn * -1 : 0
+} 
+
 
 
 function diagWinLeft(colIdx, rowIdx) {
     const color = board[colIdx][rowIdx];
     let amountOfColors = 1;
     let position = colIdx - 1;
-    let currRowIdx = rowIdx + 1;
+    let position2 = rowIdx + 1;
 
-    while (position != board[0].length && position >=0 && currRowIdx < board[0].length && board[position][currRowIdx] == color) {
+    while (position >=0 && position2 < board[0].length && board[position][position2] === color) {
         amountOfColors++;
         position--;
-        currRowIdx++;
-        //debugger;
+        position2++;
     }
     position = colIdx + 1;
     currRowIdx = rowIdx -1;
-    while (position != board[0].length && position < board.length &&  currRowIdx >= 0 && board[position][currRowIdx] == color) {
+
+    while (position < board.length &&  currRowIdx >= 0 && board[position][currRowIdx] === color) {
         amountOfColors++
         position++;
         currRowIdx--;
     }
-    if (amountOfColors >= 4)  {
-        alert(color + ' has won')
+    return amountOfColors >= 4 ? winner = turn * -1 : 0
     } 
-    console.log('diagWinLeft', amountOfColors)
-}
 
- function diagWinRight(colIdx, rowIdx) {
+
+function diagWinRight(colIdx, rowIdx) {
     const color = board[colIdx][rowIdx];
     let amountOfColors = 1;
     let position = colIdx + 1;
     let currRowIdx = rowIdx + 1; 
-    while (position != board[0].length && position <board.length && currRowIdx < board[0].length && board[position][currRowIdx] == color) {
+    while (position < board.length && currRowIdx >= 0 && board[position][currRowIdx] === color) {
         amountOfColors++;
         position++;
         currRowIdx++;
     }
     position = colIdx - 1;
     currRowIdx = rowIdx -1;
-    while (position != board[0].length && position >=0 && currRowIdx >= 0 && board[position][currRowIdx] == color) {
+    while (position >= 0 && currRowIdx < board[0].length && board[position][currRowIdx] === color) {
         amountOfColors++
         position--;
         currRowIdx--;
     }
-    if (amountOfColors >= 4)  {
-        alert(color + ' has won')
-    } 
-    console.log('diagWinRight', amountOfColors)
+    return amountOfColors >= 4 ? winner = turn * -1 : 0;
 }
 
 
 function renderMessage() {
-    if(gameStatus === null) {
-        msgEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn]}</span>'s Turn`;
-    }else if(gameStatus === 'T') {
+    if (winner === 'T') {
         //Tie game
         msgEl.textContent = "It's a Draw! No one wins!";
+    }else if (winner === 1 || winner === -1) {
+        // winner
+        msgEl.innerHTML = `Player <span style="color: ${COLORS[winner]}">${COLORS[winner]}</span>'s Wins!`;
     }else {
-        //player 'x' wins
-        msgEl.innerHTML = `Player <span style="color: ${COLORS[gameStatus]}">${COLORS[turn]}</span>'s Wins!`;
+        //turn
+        msgEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn]}</span>'s Turn`;
     }
 }
 
 
-//function getWinner(colIdx, rowIdx) {
-    // look to the left or right for current turn, 4 or more times, return true/win; victory
-    // look below for current turn 4 or more times, return true/win; victory
-    // look up to the left or down to the right for current turn 4 or more times, return true; victory
-//}
+function checkWinner(colIdx, rowIdx) {
+    return vertWin(colIdx, rowIdx) ||
+    horizWin(colIdx, rowIdx) ||
+    diagWinLeft(colIdx, rowIdx) || 
+    diagWinRight(colIdx, rowIdx) 
+}
+
