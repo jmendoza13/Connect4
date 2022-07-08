@@ -157,14 +157,14 @@ function diagWinRight(colIdx, rowIdx) {
 
 function renderMessage() {
     if (winner === 'T') {
-        //Tie game
+        //tie game
         msgEl.textContent = "It's a Draw! No one wins!";
     }else if (winner === 1 || winner === -1) {
         // winner
-        msgEl.innerHTML = `Player <span style="color: ${COLORS[winner]}">${COLORS[winner]}</span> Wins!`;
+        msgEl.innerHTML = `PLAYER <span style="color: ${COLORS[winner]}">${COLORS[winner].toUpperCase()}</span> WINS!`;
     }else {
         //turn
-        msgEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn]}</span>'s Turn`;
+        msgEl.innerHTML = `PLAYER <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>'s TURN`;
     }
 }
 

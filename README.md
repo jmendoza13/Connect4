@@ -5,4 +5,7 @@ Connect 4 is a family friendly game released in 1974 by Milton Bradley. The obje
 ## How to Play:
 * Players must alternate turns, dropping one disc per turn wherever they desire
 * On your turn, drop one your respective colored disc(s) from the top in any of the seven available slots
-* The game ends when there are 4 same colored discs in a row or if a tie occurs
+* The game ends when there are 4 same colored discs in a row or if a tie occurs.
+
+
+
