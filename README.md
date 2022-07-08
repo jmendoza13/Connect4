@@ -9,9 +9,10 @@ Connect 4 is a family friendly game released in 1974 by Milton Bradley. The obje
 
 ## Screenshot
 
-![Screenshot](https://imgur.com/n4Lrzy8)
-![Screenshot](https://imgur.com/jIC3YN3
-![Screenshot](https://imgur.com/jIC3YN3
+<img src="https://imgur.com/n4Lrzy8"   style= "width=:300px height:200px " />
+<img src="https://imgur.com/jIC3YN3"   style= "width=:300px height:200px " />
+<img src="https://imgur.com/jIC3YN3"   style= "width=:300px height:200px " />
+
 ## :computer: Technologies Used
 
 ![Github](https://img.shields.io/badge/-GitHub-333?style=flat&logo=github)
