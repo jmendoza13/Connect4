@@ -9,9 +9,14 @@
 
 ## :camera_flash: Screenshot
 
-<img src="https://i.imgur.com/n4Lrzy8.png"   width="500px" height="400px"/>
-<img src="https://i.imgur.com/jIC3YN3.png"   width="500px" height="400px"/>
-<img src="https://i.imgur.com/IwH6SBn.png"   width="500px" height="400px"/>
+Wireframe 
+<img src="https://i.imgur.com/n4Lrzy8.png"   width="700px" height="400px"/>
+
+Board Layout
+<img src="https://i.imgur.com/jIC3YN3.png"   width="700px" height="400px"/>
+
+Win Condition met
+<img src="https://i.imgur.com/IwH6SBn.png"   width="700px" height="400px"/>
 
 ## :computer: Technologies Used
 
