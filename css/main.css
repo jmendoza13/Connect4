@@ -14,7 +14,7 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 100px);
     justify-content: center;
-    gap: 0.5vh;
+    gap: 0.3vh;
     margin-bottom: -7vh;
     margin-top: -4vh;
   }
@@ -23,7 +23,7 @@ body {
     height: 1vmin;
     border-width: 7vmin;
     border-style: solid;
-    border-color: rgb(164, 0, 214) transparent transparent;
+    border-color: rgb(116, 161, 246) transparent transparent;
     transform: scale(0.5);
     
   }
@@ -42,12 +42,11 @@ body {
     height:600px;
     margin: 0 auto;
     justify-content: center;
-    background-color: black;
 }
 
 #board > div {
     margin-top: 5px;
-    border: 7.5px solid black;
+    border: 7.5px solid rgb(89, 204, 158);
     border-radius: 50%;
     background-color: white;
     cursor: pointer;

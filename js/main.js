@@ -14,11 +14,13 @@ let gameStatus; // null = game in progress; 1/-1 player win; 'T' = tie;
 let winner;
 
 /*----- cached element references -----*/
+
 const markerEls = [...document.querySelectorAll('#markers > div')];
 const msgEl = document.querySelector('h2');
 const replayBtn = document.getElementById('replay');
 
 /*----- event listeners -----*/
+
 document.getElementById('markers').addEventListener('click', handleDrop);
 let test = replayBtn.addEventListener('click', init);
 
@@ -174,5 +176,3 @@ function checkWinner(colIdx, rowIdx) {
     diagWinLeft(colIdx, rowIdx, player) || 
     diagWinRight(colIdx, rowIdx, player) 
 }
-
-// zig zag issues
