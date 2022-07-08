@@ -7,5 +7,20 @@ Connect 4 is a family friendly game released in 1974 by Milton Bradley. The obje
 * On your turn, drop one your respective colored disc(s) from the top in any of the seven available slots
 * The game ends when there are 4 same colored discs in a row or if a tie occurs.
 
+## Screenshot
 
+![Screenshot](https://imgur.com/n4Lrzy8)
+![Screenshot](https://imgur.com/jIC3YN3
+![Screenshot](https://imgur.com/jIC3YN3
+## :computer: Technologies Used
+
+![Github](https://img.shields.io/badge/-GitHub-333?style=flat&logo=github)
+![JavaScript](https://img.shields.io/badge/-JavaScript-333?style=flat&logo=javascript) 
+![HTML5](https://img.shields.io/badge/-HTML5-333?style=flat&logo=html5)
+![CSS3](https://img.shields.io/badge/-CSS-333?style=flat&logo=css3)
+![VSCode](https://img.shields.io/badge/-VS_Code-333?style=flat&logo=visualstudio)
+
+## Getting Started
+
+## Next Steps
 
