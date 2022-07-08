@@ -5,13 +5,13 @@
 ## :red_circle: How to Play: :large_blue_circle:
 * Players must alternate turns, dropping one disc per turn wherever they desire
 * On your turn, drop one your respective colored disc(s) from the top in any of the seven available slots
-* The game ends when there are 4 same colored discs in a row or if a tie occurs.
+* The game ends when there are 4 of the same colored discs in a row or a tie occurs.
 
 ## :camera_flash: Screenshot
 
-<img src="https://imgur.com/n4Lrzy8"   width="500px" height="400px"/>
-<img src="https://imgur.com/jIC3YN3"   width="500px" height="400px"/>
-<img src="https://imgur.com/jIC3YN3"   width="500px" height="400px"/>
+<img src="https://i.imgur.com/n4Lrzy8.png"   width="500px" height="400px"/>
+<img src="https://i.imgur.com/jIC3YN3.png"   width="500px" height="400px"/>
+<img src="https://i.imgur.com/IwH6SBn.png"   width="500px" height="400px"/>
 
 ## :computer: Technologies Used
 
@@ -23,8 +23,8 @@
 
 ## :diamond_shape_with_a_dot_inside: Getting Started
 
-Click to Play Connect Four!
-https://jmendoza13.github.io/Connect4/
+* Click to Play Connect Four!
+* https://jmendoza13.github.io/Connect4/
 
 ## :seedling: Next Steps
 
