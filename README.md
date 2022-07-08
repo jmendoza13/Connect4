@@ -14,7 +14,7 @@
 
 <img src="https://i.imgur.com/jIC3YN3.png"   width="650px" height="500px"/>
 
-<img src="https://i.imgur.com/IwH6SBn.png"   width="6500px" height="500px"/>
+<img src="https://i.imgur.com/IwH6SBn.png"   width="650px" height="500px"/>
 
 ## :computer: Technologies Used
 
