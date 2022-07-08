@@ -2,21 +2,19 @@
 
 * Connect 4 is a family friendly game released in 1974 by Milton Bradley. The objective is simple: Be the first player to connect 4 of the same colored discs in a row (vertically, horizontally, or diagonally) in order to win!
 
-## :red_circle: How to Play: :large_blue_circle:
+## :red_circle: :large_blue_circle: How to Play: 
 * Players must alternate turns, dropping one disc per turn wherever they desire
 * On your turn, drop one your respective colored disc(s) from the top in any of the seven available slots
 * The game ends when there are 4 of the same colored discs in a row or a tie occurs.
 
-## :camera_flash: Screenshot
+## :camera_flash: Screenshots
 
-Wireframe 
-<img src="https://i.imgur.com/n4Lrzy8.png"   width="700px" height="400px"/>
 
-Board Layout
-<img src="https://i.imgur.com/jIC3YN3.png"   width="700px" height="400px"/>
+<img src="https://i.imgur.com/n4Lrzy8.png"   width="650px" height="400px"/>
 
-Win Condition met
-<img src="https://i.imgur.com/IwH6SBn.png"   width="700px" height="400px"/>
+<img src="https://i.imgur.com/jIC3YN3.png"   width="650px" height="500px"/>
+
+<img src="https://i.imgur.com/IwH6SBn.png"   width="6500px" height="500px"/>
 
 ## :computer: Technologies Used
 
