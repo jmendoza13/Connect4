@@ -9,9 +9,9 @@ Connect 4 is a family friendly game released in 1974 by Milton Bradley. The obje
 
 ## Screenshot
 
-<img src="https://imgur.com/n4Lrzy8"   width="300px" height="200px"/>
-<img src="https://imgur.com/jIC3YN3"   width="300px" height="200px"/>
-<img src="https://imgur.com/jIC3YN3"   width="300px" height="200px"/>
+<img src="https://imgur.com/n4Lrzy8"   width="500px" height="400px"/>
+<img src="https://imgur.com/jIC3YN3"   width="500px" height="400px"/>
+<img src="https://imgur.com/jIC3YN3"   width="500px" height="400px"/>
 
 ## :computer: Technologies Used
 
@@ -23,5 +23,14 @@ Connect 4 is a family friendly game released in 1974 by Milton Bradley. The obje
 
 ## Getting Started
 
+Click to Play Connect Four! https://jmendoza13.github.io/Connect4/
+
 ## Next Steps
 
+1. Add Media Queries so that resizing the browser will enable a more responsive design to the game
+2. Create another button that will open up the "Rules" or a "How To Play" for Connect 4
+3. Add an animation that would show the disc dropping through each column
+4. Add sound or song for when a player wins
+5. Add a win counter to each respective player
+6. Randomize player turn so that Blue does not always go first
+7. Allow players to select their own color prior to the game starting.
